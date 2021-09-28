@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/authors")
+@RequestMapping("authors")
 public class AuthorController {
     private AuthorService authorService;
 
@@ -20,7 +20,7 @@ public class AuthorController {
         this.authorService = authorService;
     }
     // Rest API
-    @PostMapping("authors")
+    @PostMapping("")
     public ResponseEntity<Author> saveAuthor(@RequestBody Author author){
     return new ResponseEntity<>(authorService.saveAuthor(author), HttpStatus.CREATED);
     }
