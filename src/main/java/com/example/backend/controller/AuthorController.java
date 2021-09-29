@@ -4,10 +4,9 @@ import com.example.backend.model.Author;
 import com.example.backend.service.AuthorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -23,5 +22,10 @@ public class AuthorController {
     @PostMapping("")
     public ResponseEntity<Author> saveAuthor(@RequestBody Author author){
     return new ResponseEntity<>(authorService.saveAuthor(author), HttpStatus.CREATED);
+    }
+    // build get all authors REST API
+    @GetMapping
+    public List<Author> getAllAuthors(){
+        return authorService.getAllAuthors();
     }
 }

@@ -6,6 +6,8 @@ import com.example.backend.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AuthorServiceImpl implements AuthorService {
     private AuthorRepository authorRepository;
@@ -19,5 +21,10 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Author saveAuthor(Author author) {
         return authorRepository.save(author) ;
+    }
+
+    @Override
+    public List<Author> getAllAuthors() {
+        return authorRepository.findAll();
     }
 }
