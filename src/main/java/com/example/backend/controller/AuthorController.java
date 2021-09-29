@@ -28,4 +28,6 @@ public class AuthorController {
     public List<Author> getAllAuthors(){
         return authorService.getAllAuthors();
     }
+
+    // build get author by id
 }
