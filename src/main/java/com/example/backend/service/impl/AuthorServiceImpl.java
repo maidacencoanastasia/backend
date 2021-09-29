@@ -6,7 +6,6 @@ import com.example.backend.repository.AuthorRepository;
 import com.example.backend.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.ResourceAccessException;
 
 import java.util.List;
 import java.util.Optional;
@@ -51,5 +50,11 @@ public class AuthorServiceImpl implements AuthorService {
         existingAuthor.setDop_info(author.getDop_info());
         authorRepository.save(existingAuthor);
         return existingAuthor;
+    }
+
+    @Override
+    public void deleteAuthor(long id) {
+        authorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Author", "ID", id));
+        authorRepository.deleteById(id);
     }
 }

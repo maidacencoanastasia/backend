@@ -38,4 +38,10 @@ public class CountryController {
     public ResponseEntity<Country> update(@PathVariable("id") long id, @RequestBody Country country) {
         return new ResponseEntity<Country>(countryService.update(country, id), HttpStatus.OK);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteAuthor(@PathVariable("id") long id) {
+        countryService.delete(id);
+        return new ResponseEntity<String>("Successfully delete", HttpStatus.OK);
+    }
 }

@@ -1,7 +1,6 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Author;
-import com.example.backend.model.Country;
 import com.example.backend.service.AuthorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,4 +42,12 @@ public class AuthorController {
     public ResponseEntity<Author> updateAuthor(@PathVariable("id") long authorId, @RequestBody Author author) {
         return new ResponseEntity<Author>(authorService.updateAuthor(author, authorId), HttpStatus.OK);
     }
+
+    //build delete
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteAuthor(@PathVariable("id") long authorId) {
+        authorService.deleteAuthor(authorId);
+        return new ResponseEntity<String>("Successfully delete", HttpStatus.OK);
+    }
+
 }

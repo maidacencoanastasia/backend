@@ -1,14 +1,12 @@
 package com.example.backend.service.impl;
 
 import com.example.backend.exception.ResourceNotFoundException;
-import com.example.backend.model.Author;
 import com.example.backend.model.Country;
 import com.example.backend.repository.CountryRepository;
 import com.example.backend.service.CountryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CountryServiceImpl implements CountryService {
@@ -42,5 +40,13 @@ public class CountryServiceImpl implements CountryService {
         existingCountry.setName(existingCountry.getName());
         countryRepository.save(existingCountry);
         return existingCountry;
+    }
+
+    @Override
+    public void delete(long id) {
+        countryRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Country", "ID", id)
+        );
+        countryRepository.deleteById(id);
     }
 }
