@@ -23,7 +23,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Author saveAuthor(Author author) {
-        return authorRepository.save(author) ;
+        return authorRepository.save(author);
     }
 
     @Override
@@ -34,10 +34,10 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Author getAuthorById(long id) {
         Optional<Author> author = authorRepository.findById(id);
-        if (author.isPresent()){
+        if (author.isPresent()) {
             return author.get();
-        }else {
-            throw new ResourceNotFoundException("Id","Author",id);
+        } else {
+            throw new ResourceNotFoundException("Id", "Author", id);
         }
     }
 }

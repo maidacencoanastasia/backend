@@ -13,7 +13,7 @@ import java.util.Optional;
 public class CountryServiceImpl implements CountryService {
     CountryRepository countryRepository;
 
-    public  CountryServiceImpl(CountryRepository countryRepository){
+    public CountryServiceImpl(CountryRepository countryRepository) {
         super();
         this.countryRepository = countryRepository;
     }
@@ -30,6 +30,6 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public Country get(long id) {
-        return countryRepository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Country", "id", id));
+        return countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Country", "id", id));
     }
 }
