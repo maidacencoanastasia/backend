@@ -1,6 +1,7 @@
 package com.example.backend.service.impl;
 
 import com.example.backend.exception.ResourceNotFoundException;
+import com.example.backend.model.Author;
 import com.example.backend.model.Country;
 import com.example.backend.repository.CountryRepository;
 import com.example.backend.service.CountryService;
@@ -31,5 +32,15 @@ public class CountryServiceImpl implements CountryService {
     @Override
     public Country get(long id) {
         return countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Country", "id", id));
+    }
+
+    @Override
+    public Country update(Country country, long id) {
+        Country existingCountry = countryRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Country", "ID", id)
+        );
+        existingCountry.setName(existingCountry.getName());
+        countryRepository.save(existingCountry);
+        return existingCountry;
     }
 }

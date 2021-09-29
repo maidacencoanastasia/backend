@@ -40,4 +40,16 @@ public class AuthorServiceImpl implements AuthorService {
             throw new ResourceNotFoundException("Id", "Author", id);
         }
     }
+
+    @Override
+    public Author updateAuthor(Author author, long id) {
+        Author existingAuthor = authorRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Author", "ID", id)
+        );
+        existingAuthor.setName(author.getName());
+        existingAuthor.setSurname(author.getSurname());
+        existingAuthor.setDop_info(author.getDop_info());
+        authorRepository.save(existingAuthor);
+        return existingAuthor;
+    }
 }

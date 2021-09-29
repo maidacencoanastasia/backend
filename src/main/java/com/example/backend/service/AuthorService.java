@@ -10,4 +10,5 @@ public interface AuthorService {
     List<Author> getAllAuthors();
 
     Author getAuthorById(long id);
+    Author updateAuthor(Author author, long id);
 }

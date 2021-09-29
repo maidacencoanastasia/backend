@@ -34,7 +34,13 @@ public class AuthorController {
 
     // build get author by id
     @GetMapping("{id}")
-    public ResponseEntity<Author> getAuthorById(@PathVariable("id") long authorId){
+    public ResponseEntity<Author> getAuthorById(@PathVariable("id") long authorId) {
         return new ResponseEntity<Author>(authorService.getAuthorById(authorId), HttpStatus.OK);
+    }
+
+    // build update
+    @PutMapping("{id}")
+    public ResponseEntity<Author> updateAuthor(@PathVariable("id") long authorId, @RequestBody Author author) {
+        return new ResponseEntity<Author>(authorService.updateAuthor(author, authorId), HttpStatus.OK);
     }
 }

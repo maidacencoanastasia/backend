@@ -14,23 +14,28 @@ import java.util.List;
 public class CountryController {
     private CountryService countryService;
 
-    public CountryController(CountryService countryService){
+    public CountryController(CountryService countryService) {
         super();
         this.countryService = countryService;
     }
 
     @PostMapping
-    public ResponseEntity<Country> create(@RequestBody Country country){
+    public ResponseEntity<Country> create(@RequestBody Country country) {
         return new ResponseEntity<Country>(countryService.save(country), HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<Country> get(){
+    public List<Country> get() {
         return countryService.getAll();
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Country> get(@PathVariable("id") long id){
+    public ResponseEntity<Country> get(@PathVariable("id") long id) {
         return new ResponseEntity<Country>(countryService.get(id), HttpStatus.OK);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Country> update(@PathVariable("id") long id, @RequestBody Country country) {
+        return new ResponseEntity<Country>(countryService.update(country, id), HttpStatus.OK);
     }
 }
