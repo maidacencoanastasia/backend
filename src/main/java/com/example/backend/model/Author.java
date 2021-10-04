@@ -23,4 +23,7 @@ public class Author {
     @Column(name = "dop_info", nullable = true)
     private String dop_info;
 
+    @Column
+    private String email;
+
 }
