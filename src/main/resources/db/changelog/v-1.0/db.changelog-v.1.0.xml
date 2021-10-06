@@ -7,5 +7,5 @@
 
     <include file="01-changeset-authors-table.xml" relativeToChangelogFile="true"/>
     <include file="10-changeset-country-table.xml" relativeToChangelogFile="true"/>
-
+    <include file="11-changeset-city-table.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
