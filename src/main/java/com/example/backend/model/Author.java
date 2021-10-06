@@ -1,6 +1,7 @@
 package com.example.backend.model;
 
 import lombok.Data;
+
 import javax.persistence.*;
 
 

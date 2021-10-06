@@ -22,7 +22,7 @@ public class City {
     private Country country;
 
     @JsonBackReference
-    public Country getCountry(){
+    public Country getCountry() {
         return country;
     }
 }

@@ -4,6 +4,7 @@ import com.example.backend.model.City;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 public interface CityService {
     City save(City City);
 
